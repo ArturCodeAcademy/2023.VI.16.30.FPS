@@ -33,10 +33,14 @@ public class PlayerMovement : MonoBehaviour
         _verticalVelocity -= Physics.gravity.magnitude * _gravityScale * Time.deltaTime;
 		Vector3 moveVector = (_moveVector + _verticalVelocity * Vector3.up) * Time.deltaTime;
 
-        _moveVector *= IsGrounded ? _groundedMoveVectorMultiplier : _nonGroundedMoveVectorMultiplier;
-        if (moveVector.magnitude < _minSpeed)
-			OnStop?.Invoke();
-        else
+        Vector3 originalMoveVector = _moveVector;
+        _moveVector *= IsGrounded ? _groundedMoveVectorMultiplier : _nonGroundedMoveVectorMultiplier * (1 - Time.deltaTime);
+        if (moveVector.magnitude < _minSpeed && originalMoveVector != Vector3.zero)
+        {
+            OnStop?.Invoke();
+            _moveVector = Vector3.zero;
+        }
+        else if (moveVector.magnitude >= _minSpeed)
             OnMove?.Invoke();
 
         var collisionFlags = _characterController.Move(moveVector);
@@ -72,6 +76,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(float moveVector)
     {
+		if (moveVector <= 0)
+			return;
+
+		IsGrounded = false;
+		OnGetOfTheGround?.Invoke();
 		_verticalVelocity = moveVector;
 	}
 }

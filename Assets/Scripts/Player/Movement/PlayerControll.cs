@@ -48,7 +48,8 @@ public class PlayerControll : MonoBehaviour
 		else
 			hMove *= _moveSpeed;
 
-		_playerMovement.HorizontalMove(hMove);
+		if (hMove != Vector3.zero)
+			_playerMovement.HorizontalMove(hMove);
 	}
 
 	private void ResetJumps()

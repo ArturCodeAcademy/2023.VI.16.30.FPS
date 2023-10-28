@@ -1,10 +1,13 @@
 using UnityEngine;
+using static PlayerMovement;
 
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(PlayerCrouching))]
 public class PlayerControll : MonoBehaviour
 {
-    [SerializeField, Min(0)] private float _speedInAir;
+	public HorizontalMoveType LastMove { get; private set; }
+
+	[SerializeField, Min(0)] private float _speedInAir;
     [SerializeField, Min(0)] private float _crouchSpeed;
     [SerializeField, Min(0)] private float _moveSpeed;
     [SerializeField, Min(0)] private float _runSpeed;
@@ -38,18 +41,31 @@ public class PlayerControll : MonoBehaviour
 
 		Vector3 hMove = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
 		hMove = transform.TransformDirection(hMove);
-		
+
 		if (!_playerMovement.IsGrounded)
+		{
 			hMove *= _speedInAir;
+		}
 		else if (_playerCrouching.IsCrouched)
+		{
 			hMove *= _crouchSpeed;
+			LastMove = HorizontalMoveType.Crouch;
+		}
 		else if (Input.GetKey(KeyCode.LeftShift))
+		{
 			hMove *= _runSpeed;
+			LastMove = HorizontalMoveType.Run;
+		}
 		else
+		{
 			hMove *= _moveSpeed;
+			LastMove = HorizontalMoveType.Walk;
+		}
 
 		if (hMove != Vector3.zero)
 			_playerMovement.HorizontalMove(hMove);
+		else
+			LastMove = HorizontalMoveType.None;
 	}
 
 	private void ResetJumps()
@@ -79,4 +95,12 @@ public class PlayerControll : MonoBehaviour
 	}
 
 #endif
+
+	public enum HorizontalMoveType
+	{
+		None,
+		Crouch,
+		Walk,
+		Run
+	}
 }

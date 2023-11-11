@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public bool IsGrounded { get; private set; }
 
-    public event Action OnGetGrounded;
+    public event Action<float> OnGetGrounded;
     public event Action OnGetOfTheGround;
     public event Action OnMove;
     public event Action OnStop;
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         if (collisionFlags == CollisionFlags.Below)
         {
 			if (!IsGrounded)
-				OnGetGrounded?.Invoke();
+				OnGetGrounded?.Invoke(_verticalVelocity);
 			IsGrounded = true;
 			_groundedTimerCounter = _groundedTimer;
             _verticalVelocity = 0f;

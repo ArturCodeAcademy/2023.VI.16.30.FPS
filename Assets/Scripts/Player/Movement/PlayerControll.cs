@@ -1,8 +1,8 @@
 using UnityEngine;
-using static PlayerMovement;
 
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(PlayerCrouching))]
+[RequireComponent(typeof(Stamina))]
 public class PlayerControll : MonoBehaviour
 {
 	public HorizontalMoveType LastMove { get; private set; }
@@ -11,6 +11,7 @@ public class PlayerControll : MonoBehaviour
     [SerializeField, Min(0)] private float _crouchSpeed;
     [SerializeField, Min(0)] private float _moveSpeed;
     [SerializeField, Min(0)] private float _runSpeed;
+    [SerializeField, Min(0)] private float _runStaminaUsagePerSecond;
 
     [Space(5)]
     [SerializeField, Min(1)] private int _jumpCount = 1;
@@ -18,6 +19,7 @@ public class PlayerControll : MonoBehaviour
 
     private PlayerMovement _playerMovement;
     private PlayerCrouching _playerCrouching;
+	private Stamina _stamina;
 
 	private int _leftJumps;
 	private float _jumpForce;
@@ -26,6 +28,7 @@ public class PlayerControll : MonoBehaviour
     {
 		_playerMovement = GetComponent<PlayerMovement>();
 		_playerCrouching = GetComponent<PlayerCrouching>();
+		_stamina = GetComponent<Stamina>();
 	}
 
 	private void Start()
@@ -53,8 +56,17 @@ public class PlayerControll : MonoBehaviour
 		}
 		else if (Input.GetKey(KeyCode.LeftShift))
 		{
-			hMove *= _runSpeed;
-			LastMove = HorizontalMoveType.Run;
+			float staminaUsage = _runStaminaUsagePerSecond * Time.deltaTime;
+			if (_stamina.UseStamina(staminaUsage) > 0)
+			{
+				hMove *= _runSpeed;
+				LastMove = HorizontalMoveType.Run;
+			}
+			else
+			{
+				hMove *= _moveSpeed;
+				LastMove = HorizontalMoveType.Walk;
+			}
 		}
 		else
 		{
@@ -68,7 +80,7 @@ public class PlayerControll : MonoBehaviour
 			LastMove = HorizontalMoveType.None;
 	}
 
-	private void ResetJumps()
+	private void ResetJumps(float _ = default)
 	{
 		_leftJumps = _jumpCount;
 	}

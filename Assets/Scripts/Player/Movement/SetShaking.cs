@@ -9,6 +9,8 @@ public class SetShaking : MonoBehaviour
 	[SerializeField] private ShakeSettings _run;
 	[SerializeField] private ShakeSettings _fall;
 	[SerializeField] private ShakeSettings _land;
+	[SerializeField, Min(1)] private float _landVelocityDevider;
+	[SerializeField, Min(0)] private float _maxLandAplitude;
 
 	private PlayerMovement _playerMovement;
 	private PlayerControll _playerControll;
@@ -50,8 +52,11 @@ public class SetShaking : MonoBehaviour
 		_cameraShaker.SetShakePriority(_fall);
 	}
 
-	private void OnLand()
+	private void OnLand(float velocity)
 	{
-		_cameraShaker.SetShakePriority(_land);
+		var land = Instantiate(_land);
+		land.Amplitude *= Mathf.Abs(velocity / _landVelocityDevider);
+		land.Amplitude = Mathf.Min(land.Amplitude, _maxLandAplitude);
+		_cameraShaker.SetShakePriority(land);
 	}
 }

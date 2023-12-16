@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.5015747, g: 0.2701575, b: 0.21001196, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -550,8 +550,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 20a705aea2d80e0478fb89b6f43d8530, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.3000231
-  m_FrequencyGain: 0.5000113
+  m_AmplitudeGain: 0.3111378
+  m_FrequencyGain: 0.5058056
   mNoiseOffsets: {x: -24.056305, y: -722.93665, z: 928.9}
 --- !u!1 &127222802
 GameObject:
@@ -2190,11 +2190,11 @@ MonoBehaviour:
   _muzzle: {fileID: 893772930}
   _laser: {fileID: 652170041}
   _audioSource: {fileID: 893772932}
-  _fireRate: 15
+  _fireRate: 10
   _shotCount: 50
   _damage: 0.5
   _cooldown: 5
-  _spreadAngle: 0
+  _spreadAngle: 5
   _muzzleFlashPrefab: {fileID: 6527263144580451605, guid: c2324e8c3bb6cbb44be1f2a26890910d, type: 3}
   _hole: {fileID: 2782590868945587539, guid: 6b6a65da1e26faf459dc4ced8d72047c, type: 3}
 --- !u!1 &705507993

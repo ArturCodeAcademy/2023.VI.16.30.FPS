@@ -1,8 +1,33 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TurretShooting : MonoBehaviour
 {
-    [SerializeField] private Transform _muzzle;
+    public UnityEvent OnStartShooting;
+    public UnityEvent OnStopShooting;
+
+	public bool Enabled
+    {
+        get => _enabled;
+        set
+        {
+            _enabled = value;
+            _pause = 0;
+            if (_enabled)
+            {
+                _leftShots = _shotCount;
+            }
+            else
+            {
+				_leftShots = 0;
+				OnStopShooting?.Invoke();
+            }
+        }
+    }
+
+	[SerializeField] private bool _enabled = true;
+
+	[SerializeField] private Transform _muzzle;
     [SerializeField] private Laser _laser;
     [SerializeField] private AudioSource _audioSource;
 
@@ -20,25 +45,34 @@ public class TurretShooting : MonoBehaviour
     private float _pause;
     private int _leftShots;
 
-    private void Start()
+	private void Awake()
+	{
+		OnStartShooting ??= new UnityEvent();
+        OnStopShooting ??= new UnityEvent();
+	}
+
+	private void Start()
     {
 		_leftShots = _shotCount;
 	}
 
     private void Update()
     {
+        if (!Enabled)
+			return;
+
         if (_pause > 0)
         {
             _pause -= Time.deltaTime;
             if (_pause < 0 && !(_leftShots < _shotCount))
-                _laser.TurnOn();
+                OnStopShooting?.Invoke();
             else
                 return;
         }
 
         if (Physics.Raycast(_muzzle.position, _muzzle.forward, out RaycastHit hit) && hit.transform == Player.Instance.transform || _leftShots < _shotCount)
         {
-			_laser.TurnOff();
+			OnStartShooting?.Invoke();
             if (--_leftShots <= 0)
             {
                 _pause = _cooldown;
@@ -54,7 +88,11 @@ public class TurretShooting : MonoBehaviour
                 if (h.transform.TryGetComponent(out IHittable hittable))
                     hittable.Hit(_damage);
                 else
-                    Instantiate(_hole, h.point, Quaternion.LookRotation(h.normal, Vector3.up), h.transform);
+                {
+                    var hole = Instantiate(_hole, h.transform, true);
+                    hole.transform.position = h.point;
+                    hole.transform.rotation = Quaternion.LookRotation(h.normal, Vector3.up);
+				}
 
             if (_muzzleFlashPrefab)
 				Instantiate(_muzzleFlashPrefab, _muzzle.position, _muzzle.rotation);

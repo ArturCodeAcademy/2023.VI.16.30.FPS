@@ -1038,6 +1038,22 @@ PrefabInstance:
       propertyPath: _enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5415477052020286290, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
+      propertyPath: _detach.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415477052020286290, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
+      propertyPath: _detach.Array.data[9]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415477052020286290, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
+      propertyPath: _detach.Array.data[10]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415477052020286290, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
+      propertyPath: _detach.Array.data[11]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6182420111688715082, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
       propertyPath: m_Name
       value: Turret (2)
@@ -1211,8 +1227,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 20a705aea2d80e0478fb89b6f43d8530, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.3696749
-  m_FrequencyGain: 0.5497674
+  m_AmplitudeGain: 0.4108654
+  m_FrequencyGain: 0.5790873
   mNoiseOffsets: {x: -24.056305, y: -722.93665, z: 928.9}
 --- !u!1 &127222802
 GameObject:
@@ -4544,7 +4560,7 @@ Transform:
   m_GameObject: {fileID: 428674811}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 103.7, y: 102.16, z: 133.2}
+  m_LocalPosition: {x: 129.01, y: 101.5, z: 125.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5189,6 +5205,22 @@ PrefabInstance:
     - target: {fileID: 4842249917363678740, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
       propertyPath: _enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415477052020286290, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
+      propertyPath: _detach.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415477052020286290, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
+      propertyPath: _detach.Array.data[9]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415477052020286290, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
+      propertyPath: _detach.Array.data[10]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415477052020286290, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
+      propertyPath: _detach.Array.data[11]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6182420111688715082, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
       propertyPath: m_Name
@@ -8752,6 +8784,22 @@ PrefabInstance:
       propertyPath: _enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5415477052020286290, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
+      propertyPath: _detach.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415477052020286290, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
+      propertyPath: _detach.Array.data[9]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415477052020286290, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
+      propertyPath: _detach.Array.data[10]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415477052020286290, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
+      propertyPath: _detach.Array.data[11]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6182420111688715082, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
       propertyPath: m_Name
       value: Turret (3)
@@ -10205,7 +10253,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 103.7, y: 103.810005, z: 133.2}
+  m_LocalPosition: {x: 129.01, y: 103.15, z: 125.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10800,6 +10848,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8460917321318470221, guid: 3964c23ae9838e84889ea6d65b5861aa, type: 3}
   m_PrefabInstance: {fileID: 1002132851}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1020511413 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8927612597945836683, guid: 7caf295ba94ecb8458cc18ff85f1fdfb, type: 3}
+  m_PrefabInstance: {fileID: 2105212670622568885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1020511418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020511413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f166a35f68d4144b80700fb4d1eb71f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1034282432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19747,6 +19812,22 @@ PrefabInstance:
       propertyPath: _enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5415477052020286290, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
+      propertyPath: _detach.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415477052020286290, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
+      propertyPath: _detach.Array.data[9]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415477052020286290, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
+      propertyPath: _detach.Array.data[10]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415477052020286290, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
+      propertyPath: _detach.Array.data[11]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6182420111688715082, guid: cafe3bbe18194f64d98a34686d864b96, type: 3}
       propertyPath: m_Name
       value: Turret (4)
@@ -21516,6 +21597,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 234689939389198222, guid: 7caf295ba94ecb8458cc18ff85f1fdfb, type: 3}
+      propertyPath: _range
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 3721033827429081392, guid: 7caf295ba94ecb8458cc18ff85f1fdfb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 115.18
@@ -21563,7 +21648,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8927612597945836683, guid: 7caf295ba94ecb8458cc18ff85f1fdfb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1020511418}
   m_SourcePrefab: {fileID: 100100000, guid: 7caf295ba94ecb8458cc18ff85f1fdfb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

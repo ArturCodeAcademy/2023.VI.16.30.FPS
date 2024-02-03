@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 	public PlayerMovement Movement { get; private set; }
 	public Health Health { get; private set; }
 	public Stamina Stamina { get; private set; }
+	public ItemHolder ItemHolder { get; private set; }
 
 	public Vector3 Center => transform.position + LocalCenter;
 	public Vector3 LocalCenter => _controller.height / 2f * Vector3.up;
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
 		Movement = GetComponent<PlayerMovement>();
 		Health = GetComponent<Health>();
 		Stamina = GetComponent<Stamina>();
+		ItemHolder = GetComponentInChildren<ItemHolder>();
 
 		_controller = GetComponent<CharacterController>();
 	}

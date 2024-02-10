@@ -48,7 +48,7 @@ public class ItemHolder : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.G))
 		{
-			if (_current.Droppable)
+			if (_current?.Droppable ?? false)
 				RemoveItem(_current);
 		}
 	}
@@ -89,22 +89,21 @@ public class ItemHolder : MonoBehaviour
 			return;
 
 		_items.Add(item);
+
+		item.OnHide();
+		item.gameObject.SetActive(false);
+		item.transform.parent = transform;
+
+		item.OnPickup();
+		OnItemAdded?.Invoke(item);
+
 		if (_items.Count == 1)
 		{
 			_currentIndex = 0;
 			_current = item;
-			_current.transform.parent = transform;
 			_current.gameObject.SetActive(true);
 			_current.OnShow();
 		}
-		else
-		{
-			item.OnHide();
-			item.gameObject.SetActive(false);
-		}
-
-		item.OnPickup();
-		OnItemAdded?.Invoke(item);
 	}
 
 	public void RemoveItem(HoldableItem item)
@@ -120,13 +119,15 @@ public class ItemHolder : MonoBehaviour
 			{
 				_current = null;
 				_currentIndex = 0;
+				OnItemChanged?.Invoke(null);
 			}
 			else
 			{
-				if (_items.Count == 0)
-					OnItemChanged?.Invoke(null);
-				else
-					NextItem();
+				_currentIndex %= _items.Count;
+				_current = _items[_currentIndex];
+				_current.OnShow();
+				_current.gameObject.SetActive(true);
+				OnItemChanged?.Invoke(_current);
 			}
 
 			OnItemRemoved?.Invoke(item);

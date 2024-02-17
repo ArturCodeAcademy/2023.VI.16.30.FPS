@@ -19,6 +19,7 @@ public class Aiming : MonoBehaviour
 	private void Awake()
 	{
 		_holdableItem = GetComponent<HoldableItem>();
+		enabled = false;
 	}
 
 	private void OnEnable()

@@ -15,14 +15,18 @@ public class ItemHolder : MonoBehaviour
     private int _currentIndex;
     private List<HoldableItem> _items;
 
+	private const float THROW_IMULSE = 7;
+	private const float THROW_TORQUE = 13;
+
 	public HoldableItem this[int index] => _items[index];
 
-    private void Awake()
+    private void Start()
     {
 		_items = GetComponentsInChildren<HoldableItem>().ToList();
 
         foreach (var item in _items)
         {
+			item.OnPickup();
             item.OnHide();
 			item.gameObject.SetActive(false);
 		}
@@ -32,6 +36,7 @@ public class ItemHolder : MonoBehaviour
         {
 			_current = _items[_currentIndex];
 			_current.OnShow();
+			_current.gameObject.SetActive(true);
 		}
 	}
 
@@ -114,6 +119,12 @@ public class ItemHolder : MonoBehaviour
 			_items.Remove(item);
 			item.gameObject.SetActive(true);
 			item.OnDrop();
+
+			if (item.TryGetComponent(out Rigidbody rb))
+			{
+				rb.AddForce(Camera.main.transform.forward * THROW_IMULSE, ForceMode.Impulse);
+				rb.AddTorque(UnityEngine.Random.insideUnitSphere * THROW_TORQUE, ForceMode.Impulse);
+			}
 
 			if (_items.Count == 0)
 			{

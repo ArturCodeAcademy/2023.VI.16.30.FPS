@@ -1347,8 +1347,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 20a705aea2d80e0478fb89b6f43d8530, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0.3000001
-  m_FrequencyGain: 0.5000002
+  m_AmplitudeGain: 0.3000656
+  m_FrequencyGain: 0.5000468
   mNoiseOffsets: {x: -24.056305, y: -722.93665, z: 928.9}
 --- !u!1 &127222802
 GameObject:
@@ -22630,39 +22630,39 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 33269b2b610f4c245a712795c1927939, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 87.062004
+      value: 86.91
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33269b2b610f4c245a712795c1927939, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 101.329
+      value: 101.518
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33269b2b610f4c245a712795c1927939, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 386.96002
+      value: 388.941
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33269b2b610f4c245a712795c1927939, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9996635
+      value: 0.9995422
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33269b2b610f4c245a712795c1927939, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.022598302
+      value: -0.03025583
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33269b2b610f4c245a712795c1927939, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.012737319
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33269b2b610f4c245a712795c1927939, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00028793866
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33269b2b610f4c245a712795c1927939, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -2.59
+      value: -3.468
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33269b2b610f4c245a712795c1927939, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -1.46
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 33269b2b610f4c245a712795c1927939, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -22689,6 +22689,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 33269b2b610f4c245a712795c1927939, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2031414461}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 33269b2b610f4c245a712795c1927939, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2031414467}
   m_SourcePrefab: {fileID: 100100000, guid: 33269b2b610f4c245a712795c1927939, type: 3}
 --- !u!64 &2031414460
 MeshCollider:
@@ -22761,6 +22764,47 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 33269b2b610f4c245a712795c1927939, type: 3}
   m_PrefabInstance: {fileID: 2031414458}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2031414467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031414463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa81c75c15320c74f8659b6a58604449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _aimingPosition: {x: 0, y: -0.261, z: 0.521}
+  _aimingRotation: {x: -0.03025939, y: 0, z: 0, w: 0.99954206}
+  _standartSpread: 5
+  _aimingSpread: 1
+  _aimingSpeed: 1.5
+  _aimingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 3.3908432
+      outSlope: 3.3908432
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.06865674
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2034099207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24424,5 +24468,5 @@ SceneRoots:
   - {fileID: 4924218930080698859}
   - {fileID: 883847793}
   - {fileID: 569715479}
-  - {fileID: 1640591147}
   - {fileID: 2031414458}
+  - {fileID: 1640591147}

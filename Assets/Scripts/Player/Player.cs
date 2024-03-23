@@ -3,7 +3,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
-	
+
+	[field: SerializeField] public LayerMask PlayerMask { get; private set; }
 	public PlayerView View { get; private set; }
 	public PlayerCrouching Crouching { get; private set; }
 	public PlayerMovement Movement { get; private set; }

@@ -62,7 +62,7 @@ public class AmmoPanelUI : MonoBehaviour
     }
 
     [Serializable]
-    class AmmoSprites
+    public class AmmoSprites
     {
         public AmmoType Type;
         public Sprite Sprite;

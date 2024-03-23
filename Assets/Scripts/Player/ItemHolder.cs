@@ -29,6 +29,8 @@ public class ItemHolder : MonoBehaviour
 			item.OnPickup();
             item.OnHide();
 			item.gameObject.SetActive(false);
+
+			// TODO: Add events
 		}
 
         _currentIndex = 0;
@@ -37,6 +39,8 @@ public class ItemHolder : MonoBehaviour
 			_current = _items[_currentIndex];
 			_current.OnShow();
 			_current.gameObject.SetActive(true);
+
+			// TODO: Add events
 		}
 	}
 
@@ -108,6 +112,8 @@ public class ItemHolder : MonoBehaviour
 			_current = item;
 			_current.gameObject.SetActive(true);
 			_current.OnShow();
+
+			// TODO: Add events
 		}
 	}
 

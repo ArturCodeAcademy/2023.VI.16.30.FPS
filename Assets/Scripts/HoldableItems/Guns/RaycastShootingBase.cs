@@ -13,8 +13,8 @@ public class RaycastShootingBase : MonoBehaviour
 	public int MagazineAmmoCount { get; private set; }
 	public float ReloadProgress { get; private set; }
 
-	[Header("Params")]
-	[SerializeField] private AmmoType _ammoType;
+	[field: Header("Params")]
+	[field: SerializeField] public AmmoType AmmoType { get; private set; }
 	[SerializeField] private ShootType _shootType;
 	[SerializeField] private float _damage;
 	[SerializeField] private float _range;
@@ -34,6 +34,11 @@ public class RaycastShootingBase : MonoBehaviour
 	private Coroutine _reloadCoroutine;
 	private Backpack _backpack;
 	private Transform _cam;
+
+	private void Awake()
+	{
+		enabled = false;
+	}
 
 	private void Start()
 	{
@@ -92,12 +97,13 @@ public class RaycastShootingBase : MonoBehaviour
 		Instantiate(_muzzleFlash, _muzzle.position, _muzzle.rotation);
 
 		Vector3 direction = GetSpreadDirrection(_cam.forward, _aiming.Spread);
-		if (Physics.Raycast(_cam.position, direction, out RaycastHit hit, _range))
+		if (Physics.Raycast(_cam.position, direction, out RaycastHit hit, _range, ~Player.Instance.PlayerMask, QueryTriggerInteraction.Ignore))
 		{
 			if (hit.collider.TryGetComponent(out IHittable hittable))
 				hittable.Hit(_damage);
 
-			Instantiate(_hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+			var effect = Instantiate(_hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
+			effect.transform.parent = hit.collider.transform;
 		}
 
 		OnShoot?.Invoke();
@@ -116,7 +122,7 @@ public class RaycastShootingBase : MonoBehaviour
 
 	private IEnumerator Reload()
 	{
-		if (_backpack.Ammo.GetAmmunition(_ammoType) == 0 || MagazineAmmoCount >= _magazineCapacity)
+		if (_backpack.Ammo.GetAmmunition(AmmoType) == 0 || MagazineAmmoCount >= _magazineCapacity)
 		{
 			_reloadCoroutine = null;
 			OnEndReload?.Invoke();
@@ -131,7 +137,7 @@ public class RaycastShootingBase : MonoBehaviour
 			yield return wait;
 		}
 
-		MagazineAmmoCount += _backpack.Ammo.TakeAmmunition(_ammoType, _magazineCapacity - MagazineAmmoCount);
+		MagazineAmmoCount += _backpack.Ammo.TakeAmmunition(AmmoType, _magazineCapacity - MagazineAmmoCount);
 		ReloadProgress = 0;
 	}
 

@@ -10,12 +10,14 @@ public class GunBase : HoldableItem, IInteractable
 	private Collider _collider;
 	private Rigidbody _rigidbody;
 	private Aiming _aiming;
+	private RaycastShootingBase _shootingBase;
 
 	private void Awake()
 	{
 		_rigidbody = GetComponent<Rigidbody>();
 		_collider = GetComponent<Collider>();
 		_aiming = GetComponent<Aiming>();
+		_shootingBase = GetComponent<RaycastShootingBase>();
 	}
 
 	private void Start()
@@ -33,11 +35,13 @@ public class GunBase : HoldableItem, IInteractable
 		_rigidbody.isKinematic = false;
 		_collider.enabled = true;
 		_aiming.enabled = false;
+		_shootingBase.enabled = false;
 	}
 
 	public override void OnHide()
 	{
 		_aiming.enabled = false;
+		_shootingBase.enabled = false;
 	}
 
 	public override void OnPickup()
@@ -52,5 +56,6 @@ public class GunBase : HoldableItem, IInteractable
 	public override void OnShow()
 	{
 		_aiming.enabled = true;
+		_shootingBase.enabled = true;
 	}
 }

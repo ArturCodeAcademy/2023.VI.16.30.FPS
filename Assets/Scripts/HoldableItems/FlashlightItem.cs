@@ -1,9 +1,14 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(BoxCollider))]
 public class FlashlightItem : HoldableItem, IInteractable
 {
+	public bool IsOn => _isOn;
+	public event Action StateChanged;
+	public Color LightColor => _light.color;
+
 	[field: SerializeField] public string Name { get; private set; }
 	[field: SerializeField] public string Info { get; private set; }
 
@@ -22,10 +27,11 @@ public class FlashlightItem : HoldableItem, IInteractable
 
 	private void Update()
 	{
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(0) && _rigidbody.isKinematic)
 		{
 			_isOn = !_isOn;
 			_light.enabled = _isOn;
+			StateChanged?.Invoke();
 		}
 	}
 

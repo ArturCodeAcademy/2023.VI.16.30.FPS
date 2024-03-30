@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemsPanel : MonoBehaviour
 {
     [SerializeField] private GunPanel _gunPanel;
+	[SerializeField] private FlashlightPanel _flashlightPanel;
 
 	[Space(3)]
 	[SerializeField] private ItemHolder _itemHolder;
@@ -15,7 +16,8 @@ public class ItemsPanel : MonoBehaviour
 	{
 		_allPanels = new()
 		{
-			_gunPanel.gameObject
+			_gunPanel.gameObject,
+			_flashlightPanel.gameObject
 		};
 
 		foreach (var panel in _allPanels)
@@ -43,6 +45,11 @@ public class ItemsPanel : MonoBehaviour
 				RaycastShootingBase raycastShootingBase = gunBase.GetComponent<RaycastShootingBase>();
 				_gunPanel.gameObject.SetActive(true);
 				_gunPanel.SetGun(raycastShootingBase);
+				break;
+
+			case FlashlightItem flashlightItem:
+				_flashlightPanel.gameObject.SetActive(true);
+				_flashlightPanel.SetFlashlight(flashlightItem);
 				break;
 		}
 	}

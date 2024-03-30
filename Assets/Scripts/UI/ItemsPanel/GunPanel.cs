@@ -43,7 +43,6 @@ public class GunPanel : MonoBehaviour
 			_shooting.OnShoot += UpdateUI;
 			_shooting.OnStartReload += OnStartReloading;
 			_shooting.OnEndReload += OnEndReloading;
-			_reloadSlider.SetActive(true);
 		}
 	}
 
@@ -63,7 +62,10 @@ public class GunPanel : MonoBehaviour
 	private void Update()
 	{
 		if (_isReloading)
+		{
+			_reloadSlider.SetActive(_shooting.ReloadProgress != 0 && _shooting.ReloadProgress != 1);
 			_reloadFill.fillAmount = _shooting.ReloadProgress;
+		}
 	}
 
 	private void UpdateUI()

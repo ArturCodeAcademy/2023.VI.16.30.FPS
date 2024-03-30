@@ -6,6 +6,7 @@ using UnityEngine;
 public class ItemHolder : MonoBehaviour
 {
 	public int ItemCount => _items.Count;
+	public HoldableItem? CurrentItem => _current;
 
 	public event Action<HoldableItem> OnItemAdded;
 	public event Action<HoldableItem> OnItemRemoved;
@@ -30,7 +31,7 @@ public class ItemHolder : MonoBehaviour
             item.OnHide();
 			item.gameObject.SetActive(false);
 
-			// TODO: Add events
+			OnItemAdded?.Invoke(item);
 		}
 
         _currentIndex = 0;
@@ -40,7 +41,7 @@ public class ItemHolder : MonoBehaviour
 			_current.OnShow();
 			_current.gameObject.SetActive(true);
 
-			// TODO: Add events
+			OnItemChanged?.Invoke(_current);
 		}
 	}
 
@@ -113,7 +114,7 @@ public class ItemHolder : MonoBehaviour
 			_current.gameObject.SetActive(true);
 			_current.OnShow();
 
-			// TODO: Add events
+			OnItemChanged?.Invoke(_current);
 		}
 	}
 

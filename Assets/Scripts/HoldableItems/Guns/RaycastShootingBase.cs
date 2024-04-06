@@ -10,30 +10,30 @@ public class RaycastShootingBase : MonoBehaviour
 	public event Action OnEndReload;
 	public event Action OnShoot;
 
-	public int MagazineAmmoCount { get; private set; }
-	public float ReloadProgress { get; private set; }
+	public int MagazineAmmoCount { get; protected set; }
+	public float ReloadProgress { get; protected set; }
 
 	[field: Header("Params")]
 	[field: SerializeField] public AmmoType AmmoType { get; private set; }
-	[SerializeField] private ShootType _shootType;
-	[SerializeField] private float _damage;
-	[SerializeField] private float _range;
-	[SerializeField, Min(0)] private float _cooldownTime;
-	[SerializeField] private float _reloadTime;
-	[SerializeField, Min(1)] private int _magazineCapacity;
+	[SerializeField] protected ShootType _shootType;
+	[SerializeField] protected float _damage;
+	[SerializeField] protected float _range;
+	[SerializeField, Min(0)] protected float _cooldownTime;
+	[SerializeField] protected float _reloadTime;
+	[SerializeField, Min(1)] protected int _magazineCapacity;
 
 	[Header("References")]
-	[SerializeField] private Transform _muzzle;
-    [SerializeField] private Aiming _aiming;
-	[SerializeField] private ParticleSystem _muzzleFlash;
-	[SerializeField] private ParticleSystem _hitEffect;
+	[SerializeField] protected Transform _muzzle;
+    [SerializeField] protected Aiming _aiming;
+	[SerializeField] protected ParticleSystem _muzzleFlash;
+	[SerializeField] protected ParticleSystem _hitEffect;
 
-	private bool _isCooldown = false;
-	private bool _isReloading = false;
+	protected bool _isCooldown = false;
+	protected bool _isReloading = false;
 
-	private Coroutine _reloadCoroutine;
-	private Backpack _backpack;
-	private Transform _cam;
+	protected Coroutine _reloadCoroutine;
+	protected Backpack _backpack;
+	protected Transform _cam;
 
 	private void Awake()
 	{
@@ -109,7 +109,12 @@ public class RaycastShootingBase : MonoBehaviour
 		OnShoot?.Invoke();
 	}
 
-	private void Cooldown()
+	protected void InvokeOnShoot()
+	{
+		OnShoot?.Invoke();
+	}
+
+	protected void Cooldown()
 	{
 		_isCooldown = false;
 	}

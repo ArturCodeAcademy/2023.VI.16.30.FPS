@@ -1708,6 +1708,7 @@ GameObject:
   - component: {fileID: 7648523739674437917}
   - component: {fileID: 4932695759875318163}
   - component: {fileID: 5415477052020286290}
+  - component: {fileID: 3913525413395918254}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -1911,6 +1912,22 @@ MonoBehaviour:
   _destroyDelay: 5
   _explosionForce: 10
   _explosionRadius: 0.5
+--- !u!114 &3913525413395918254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6182420111688715082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b41c03a4ef021b41a60bf8bc1ab29a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToDropPrefab: {fileID: 8258544760893803922, guid: 6032b847c5c6b8549a4cff3444acd89d, type: 3}
+  _impulse: 3
+  _offset: {x: 0, y: 1.5, z: 0}
+  _health: {fileID: 7648523739674437917}
 --- !u!1 &6222710394179274002
 GameObject:
   m_ObjectHideFlags: 0

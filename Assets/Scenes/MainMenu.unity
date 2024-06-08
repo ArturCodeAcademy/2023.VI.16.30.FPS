@@ -7536,7 +7536,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 491652445}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 988954038}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &491652445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14853,7 +14865,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4995083a8947f0a4ea5fe99af77827de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scenes: []
+  _scenes:
+  - Name: Open world
+    BuildIndex: 1
+  - Name: Level 1
+    BuildIndex: 2
+  _sceneButtonPrefab: {fileID: 473566584}
 --- !u!1001 &992143565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21397,7 +21414,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1453867621}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 988954038}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1453867621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30912,6 +30941,8 @@ GameObject:
   - component: {fileID: 2135839252}
   - component: {fileID: 2135839251}
   - component: {fileID: 2135839254}
+  - component: {fileID: 2135839255}
+  - component: {fileID: 2135839256}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -31014,6 +31045,31 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2135839255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135839250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73de332dcd9ec394697f63be3dd46915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skipSpeed: 10
+--- !u!114 &2135839256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135839250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f828dbf9eeed37141ad48b2846ffd3d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2135946493
 PrefabInstance:
   m_ObjectHideFlags: 0
